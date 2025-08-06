@@ -89,7 +89,7 @@ function Header() {
           </div>
 
           {/* Reach Out */}
-          <MainButton text={"Reach out"} />
+          {/* <MainButton text={"Reach out"} /> */}
         </div>
       </div>
 
@@ -114,6 +114,7 @@ function Header() {
                   </a>
                 ))}
               </nav>
+              <MainButton text={"Reach out"} />
             </motion.div>
           )}
         </AnimatePresence>
