@@ -7,14 +7,14 @@ import ExecutivesSection from "../components/ExecutivesSection";
 
 function Home() {
   return (
-    <>
+    <div className="">
       <HeroSection />
       <BrandsSection />
       <AboutSection />
       <PorfolioSection />
       <ExtraSection />
       <ExecutivesSection />
-    </>
+    </div>
   );
 }
 
