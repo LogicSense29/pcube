@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+
+@theme {
+  --font-host-grotesk : Host Grotesk, sans-serif;
+  --color-header-gray: #949494;
+  --color-main-bg: #F2F7F8;
+  --color-primary: #6902FF;
+  --color-primary-2: #6C22D7;
+}
+
+.extra{
+background: linear-gradient(275.14deg, #6902FF -181.11%, #E0E6F9 31.94%);
+/* border-radius: 40px; */
+}
+
+.text {
+  /* The leadership that carried your information */
+width: 788px;
+height: 146px;
+font-family: 'Host Grotesk';
+font-style: normal;
+font-weight: 400;
+font-size: 64px;
+line-height: 62px;
+text-align: center;
+letter-spacing: -0.02em;
+color: #000000;
+}
+
+.footerPic {
+  /* Frame 22 */
+
+/* position: absolute; */
+width: 1178px;
+height: 544px;
+/* left: 194px;
+top: 6764px; */
+
+/* background: linear-gradient(275.14deg, #6902FF -181.11%, #E0E6F9 31.94%); */
+border: 11px solid #F2F7F8;
+border-radius: 40px;
+
+}
+
+.founder-bg{ 
+position: absolute;
+width: 1578px;
+height: 990px;
+left: -8px;
+top: 4178px;
+}
+
+.about-header{
+  /* Rectangle 11 */
+
+position: absolute;
+width: 1516px;
+height: 741px;
+left: 0px;
+top: 218px;
+
+background: rgba(0, 0, 0, 0.59);
+border-radius: 18px;
+
+/* myself */
+
+/* position: absolute;
+width: 990px;
+height: 990px;
+left: -8px;
+top: 4178px;
+
+background: url(myself.png); */
+
+
+}
