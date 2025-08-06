@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
-import Image from "/self.png";
+
+
+
+import { Link } from 'react-router-dom';
+import Image from '/self.png'
 import Elipsce1 from "/Ellipse-1.png";
 import Elipsce2 from "/Ellipse-2.png";
 import Frame from "/Frame-3.png";
-import { motion } from "motion/react";
-import MainButton from "./MainButton";
+import {motion} from 'motion/react'
+import MainButton from './MainButton';
 
 function HeroSection() {
   return (
-    <section className='h-screen bg-main-bg flex-col flex lg:flex-row gap-5 md:gap-10 px-5 md:px-30 items-center justify-between relative overflow-y'>
+    <section className='h-auto bg-main-bg flex-col flex md:pt-10 lg:flex-row gap-5 md:gap-10 px-5 md:px-30 items-center justify-between relative overflow-hidden'>
       {/* Left Side */}
       <div className='z-40 lg:mb-0 mb-[20] pt-20 lg:mt-0 space-y-4 flex-1 text-center md:text-left'>
         <motion.span
@@ -65,30 +68,28 @@ function HeroSection() {
       </div>
 
       {/* Right Side */}
-      <div className='relative h-full flex-1 flex flex-col md:flex-row justify-center items-center'>
+      <div className='relative min-h-[500px] flex-1 flex flex-col md:flex-row justify-center items-center'>
         {/* <div className='relative'> */}
         {/* <div className=''> */}
         <img
           src={Frame}
-          alt=''
-          className='absolute bottom-15 w-[80%] md:w-[440px] lg:w-[400px] z-30'
+          alt='Frame'
+          className='absolute bottom-0 w-[80%] md:w-[440px] lg:w-[400px] z-30'
         />
         <img
           src={Image}
-          alt=''
-          className='absolute bottom-15 w-[70%] md:w-[400px] lg:w-[360px] z-50'
+          alt='Self'
+          className='absolute bottom-0 w-[70%] md:w-[400px] lg:w-[360px] z-50'
         />
-        {/* </div> */}
-        {/* <div className=''> */}
         <img
           src={Elipsce1}
-          alt=''
-          className='w-[50%] relative top-[48%] right-[28%] md:absolute md:right-[65%] md:top-[60%]'
+          alt='Ellipse 1'
+          className='w-[50%] absolute top-[60%] right-[65%] z-10'
         />
         <img
           src={Elipsce2}
-          alt=''
-          className='w-[50%] relative top-[10%] left-[28%] md:left-35 md:top-80 z-40'
+          alt='Ellipse 2'
+          className='w-[50%] absolute top-[80%] left-[55%] z-100'
         />
         {/* </div> */}
       </div>
@@ -97,8 +98,7 @@ function HeroSection() {
   );
 }
 
-{
-  /* <img
+{/* <img
 src={Elipsce1}
 alt=''
 className='w-[50%] absolute top-60 right-20'
@@ -107,13 +107,11 @@ className='w-[50%] absolute top-60 right-20'
 src={Elipsce2}
 alt=''
 className='w-[50%] absolute top-30 left-40 bottom-0 z-50'
-/> */
-}
+/> */}
 
-export default HeroSection;
+export default HeroSection
 
-{
-  /* <div className='relative bg-primary w-1/2 flex flex-col items-center justify-center'>
+{/* <div className='relative bg-primary w-1/2 flex flex-col items-center justify-center'>
 <div className=''>
   <img src={Frame} alt='' className='absolute bottom-0 w-1/2' />
   <img src={Image} alt='' className='absolute bottom-0 w-1/2' />
@@ -122,5 +120,4 @@ export default HeroSection;
   <img src={Elipsce1} alt='' className='w-1/2' />
   <img src={Elipsce2} alt='' className='w-1/2' />
 </div>
-</div> */
-}
+</div> */}
