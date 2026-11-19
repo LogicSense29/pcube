@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'motion/react';
 import { ArrowUpRight, MapPin, Calendar, Users, Clock, ChevronDown } from 'lucide-react';
 
-const GOOGLE_FORM_LINK = 'https://forms.gle/YOUR_FORM_LINK_HERE';
+const GOOGLE_FORM_LINK = 'https://tinyurl.com/dearfounders';
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
 const C = {
