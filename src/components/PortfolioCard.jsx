@@ -2,71 +2,52 @@ import React from 'react'
 import MainButton from './MainButton';
 
 function PortfolioCard() {
-
     const portfolioCard = [
       {
         name: "NEXASAM",
         client: "NEXASAM",
-        industry: "Web Development brand",
-        services:
-          "Custom Website Design, Frontend Development, Backend Development Full-Stack Development, E-commerce Development, Web Application Development",
-        image: "",
-      },
-
-      {
-        name: "NEXASAM",
-        client: "NEXASAM",
-        industry: "Web Development brand",
-        services:
-          "Custom Website Design, Frontend Development, Backend Development Full-Stack Development, E-commerce Development, Web Application Development",
-        image: "",
-      },
-      {
-        name: "NEXASAM",
-        client: "NEXASAM",
-        industry: "Web Development brand",
-        services:
-          "Custom Website Design, Frontend Development, Backend Development Full-Stack Development, E-commerce Development, Web Application Development",
-        image: "",
-      },
-      {
-        name: "NEXASAM",
-        client: "NEXASAM",
-        industry: "Web Development brand",
-        services:
-          "Custom Website Design, Frontend Development, Backend Development Full-Stack Development, E-commerce Development, Web Application Development",
-        image: "",
-      },
+        industry: "Web Development",
+        services: "Custom Design, Full-Stack Development, E-commerce",
+        image: "/projectimage.png",
+      }
     ];
+
   return (
-    <div>
-      {portfolioCard.map((items, index) => (
+    <div className="space-y-12">
+      {portfolioCard.map((item, index) => (
         <div
-          className='flex flex-col md:flex-row border border-gray-300 p-10 rounded-xl mb-10'
+          className='glass group rounded-[40px] overflow-hidden flex flex-col lg:flex-row shadow-2xl hover:shadow-primary/10 transition-all duration-500'
           key={index}>
-          <div className='w-full md:w-1/4 space-y-2'>
-            <div>
-              <h2 className='text-2xl text-semibold'>{items.name}</h2>
+          <div className='lg:w-1/3 p-10 md:p-16 space-y-8 flex flex-col justify-center'>
+            <div className="space-y-2">
+                <span className="text-primary text-xs font-black uppercase tracking-widest">Selected Project</span>
+                <h2 className='text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-500'>{item.name}</h2>
             </div>
-            <div>
-              <p className='text-gray-500'>Client</p>
-              <p className='text-base'>{items.client}</p>
+            
+            <div className='grid grid-cols-2 gap-8'>
+                <div className="space-y-1">
+                    <p className='text-xs font-bold uppercase tracking-widest text-slate-400'>Client</p>
+                    <p className='text-slate-800 font-bold'>{item.client}</p>
+                </div>
+                <div className="space-y-1">
+                    <p className='text-xs font-bold uppercase tracking-widest text-slate-400'>Industry</p>
+                    <p className='text-slate-800 font-bold'>{item.industry}</p>
+                </div>
             </div>
-            <div>
-              <p className='text-gray-500'>Industry</p>
-              <p className='text-base'>{items.industry}</p>
+            
+            <div className="space-y-1">
+                <p className='text-xs font-bold uppercase tracking-widest text-slate-400'>Project Scope</p>
+                <p className='text-slate-600 leading-relaxed font-medium'>{item.services}</p>
             </div>
-            <div>
-              <p className='text-gray-500'>Services</p>
-              <p className='text-base'>{items.services}</p>
-            </div>
-            <div>
-              <MainButton />
+
+            <div className="pt-4">
+              <MainButton text="Case Study" small />
             </div>
           </div>
 
-          <div className='w-full md:w-3/4'>
-            <img src='' alt='' />
+          <div className='lg:w-2/3 bg-slate-50 overflow-hidden relative'>
+             <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <img src={item.image} alt={item.name} className='w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105'/>
           </div>
         </div>
       ))}

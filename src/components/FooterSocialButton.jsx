@@ -2,22 +2,15 @@ import React from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 
-function FooterSocialButton({ text, destination, small }) {
+function FooterSocialButton({ text, destination }) {
   return (
-    <motion.button
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
-        delay: 1.3,
-        duration: 0.8,
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      }}
-      className={`rounded-full bg-gradient-to-r from-primary-2 to-primary 
-      text-white font-normal hover:to-primary hover:to-primary-2 px-5 py-2 text-xs md:px-10 md:py-4 md:text-sm transition-all duration-500`}>
+    <motion.a
+      href={destination}
+      whileHover={{ y: -5 }}
+      className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-white/10 text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300"
+    >
       {text}
-    </motion.button>
+    </motion.a>
   );
 }
 

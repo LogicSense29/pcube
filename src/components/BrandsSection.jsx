@@ -6,40 +6,46 @@ const brands = [
     path: "/nexasam-logo1.png",
   },
   {
-    name: "edify.png",
-    path: "/edify.svg",
+    name: "edify",
+    path: "/edify.png",
   },
   {
-    name: "Odara.png",
-    path: "/odara.svg",
+    name: "Odara",
+    path: "/Odara.png",
   },
   {
-    name: "alayoor.png",
-    path: "/alayoor.svg",
+    name: "alayoor",
+    path: "/alayoor.png",
   },
   {
-    name: "Tov.png",
+    name: "Tov",
     path: "/Tov.png",
   },
 ];
 function BrandsSection() {
   return (
-    <section className='bg-main-bg pt-20 pb-10 md:pl-30 space-y-8'>
-      <h2 className='text-4xl font-semibold text-center'>We built:</h2>
-      <div className='flex flex-row gap-1 '>
-        {brands.map((items, index) => (
-          <div
-            key={index}
-            className='flex items-center justify-center bg-white px-6 py-2 w-1/2 z-700'>
-            <img
-              src={items.path}
-              alt={items.name}
-              className={`object-cover`}
-            />
-          </div>
-        ))}
+    <section className='bg-[#0A0118] py-12 overflow-hidden border-y border-white/5'>
+      <div className='max-w-7xl mx-auto px-6 mb-4'>
+        <h2 className='text-[10px] font-bold tracking-[0.4em] uppercase text-primary/60 text-center lg:text-left'>
+          Selected Partners & Clients
+        </h2>
       </div>
-      <MoreButton />
+      
+      <div className='relative flex overflow-x-hidden group no-scrollbar py-6'>
+        <div className='flex animate-marquee whitespace-nowrap w-max gap-12 px-12'>
+          {[...brands, ...brands, ...brands, ...brands, ...brands].map((item, index) => (
+            <div
+              key={index}
+              className='flex-shrink-0 flex items-center justify-center transition-all duration-500 hover:scale-110 min-w-[120px] h-12'>
+              <img
+                src={item.path}
+                alt={item.name}
+                className='h-6 md:h-8 w-auto object-contain block brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity'
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import MainButton from "./MainButton";
 import FooterSocialButton from "./FooterSocialButton";
+import Logo from '/pcube-logo.svg'
 const navlinks = [
   {
     name: "Home",
@@ -19,70 +20,96 @@ const navlinks = [
     path: "/pricing",
   },
   {
+    name: "Onboarding",
+    path: "/onboarding",
+  },
+  {
     name: "Contact us",
     path: "/contact-us",
   },
 ];
 
+const social = [
+  {
+    text: "Instagram",
+    destination: "https://www.instagram.com/thepcubestudio",
+  },
+  {
+    text: "Twitter",
+    destination: "https://www.x.com/thepcubestudio",
+  },
+  {
+    text: "LinkedIn",
+    destination: "https://www.linkedin.com/company/thepcubestudio",
+  },
+];
+
 function FooterSection() {
   return (
-    <section className='relative flex flex-col bg-main-bg space-y-8'>
-      <div className=' absolute p-15 top-[-180px] w-[80%] h-[70%] self-center bg-[url("/image-girl.png")] bg-no-repeat bg-cover md:bg-right rounded-3xl outline-8 outline-[#F2F7F8] z-10'>
-        <div className='space-y-4'>
-          <h2 className='text-5xl font-normal text-white text-center md:text-left'>
-            Ready to bring <br className='hidden md:block' /> those ideas to
-            life?
+    <section className='relative flex flex-col pt-32'>
+      <div className='absolute top-0 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl h-64 glass-dark rounded-[40px] z-10 flex items-center justify-between px-10 md:px-20 overflow-hidden group'>
+        <div className="absolute inset-0 premium-gradient opacity-10 group-hover:opacity-20 transition-opacity" />
+        <div className='relative z-20'>
+          <h2 className='text-3xl md:text-5xl font-black text-white leading-tight mb-4'>
+            Ready to bring <br /> those ideas to life?
           </h2>
-          <div className='text-center md:text-left'>
-            <MainButton text={"Contact us"} />
-          </div>
+          <MainButton text={"Start a project"} />
         </div>
-        <img src='' />
+        <div className="hidden md:block relative z-20">
+            <div className="w-32 h-32 rounded-full border border-white/10 flex items-center justify-center animate-pulse">
+                <div className="w-24 h-24 rounded-full border border-white/20 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-primary/20 blur-xl" />
+                </div>
+            </div>
+        </div>
       </div>
-      <footer className='w-full bg-[#161616] pt-75 px-8 lg:px-20 lg:pt-80 lg:pb-20'>
-        <div className='flex flex-col md:flex-row justify-between md:h-[80%] gap-5 md:gap-0'>
-          <div className='flex flex-col md:w-1/4 md:self-end space-y-4'>
-            <img src='/pcube-logo2.png' className='' width={100} />
-            <p className='text-white text-xl'>Subscribe to our newsletter</p>
-            <div className='relative'>
-              <img
-                src='/circle-arrow-footer.png'
-                className='w-5 absolute right-5 bottom-4 '
-              />
-              <input
-                placeholder='Enter your email'
-                className='w-full h-full flex outline outline-[#867A97] text-[#867A97] text-sm font-normal hover:bg-gradient-to-primary-2 transition-all duration-500 px-8 py-4 rounded-full items-center justify-center gap-3'
-              />
+      <footer className='w-full bg-[#0A0A0A] pt-48 pb-12 px-6 md:px-20 lg:px-32'>
+        <div className='grid md:grid-cols-4 gap-16 md:gap-8'>
+          <div className='col-span-1 md:col-span-2 space-y-8'>
+            <img src={Logo} className='h-8 w-auto brightness-0 invert' alt="Pcube" />
+            <p className='text-slate-400 text-lg max-w-sm'>
+              Transforming visions into identity. We help brands find their form and ideas find their voice.
+            </p>
+            <div className='flex gap-4'>
+              {social.map((item, index) => (
+                <a 
+                  key={index} 
+                  href={item.destination} 
+                  className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-300"
+                >
+                  <span className="sr-only">{item.text}</span>
+                  {/* Icon placeholder or text */}
+                  <span className="text-[10px] font-bold uppercase">{item.text.substring(0, 2)}</span>
+                </a>
+              ))}
             </div>
           </div>
-          <div className='flex flex-col justify-between'>
-            {/* NavBar */}
-            <nav className='flex justify-between '>
+          
+          <div className='space-y-6'>
+            <h4 className="text-white font-bold uppercase tracking-widest text-xs">Resources</h4>
+            <nav className='flex flex-col space-y-4'>
               {navlinks.map((item, index) => (
-                <motion.a
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 20,
-                    delay: 0.7 + index * 0.2,
-                  }}
+                <a
                   key={index}
                   href={item.path}
-                  className='relative font-medium text-sm text-[#949494] hover:text-primary transition-color duration-300 group'>
+                  className='text-slate-400 hover:text-white transition-colors text-sm font-medium'>
                   {item.name}
-                  <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300'></span>
-                </motion.a>
+                </a>
               ))}
             </nav>
-            <div className='space-y-2'>
-              <p className='text-white text-sm'>Follow us on our socials</p>
-              <div className='space-x-3'>
-                {["Instagram", "Twitter", "LinkedIn"].map((items, index) => (
-                  <FooterSocialButton key={index} text={items} />
-                ))}
-              </div>
+          </div>
+
+          <div className='space-y-6'>
+            <h4 className="text-white font-bold uppercase tracking-widest text-xs">Newsletter</h4>
+            <p className="text-slate-400 text-sm">Stay updated with our latest insights.</p>
+            <div className='relative'>
+              <input
+                placeholder='Email address'
+                className='w-full bg-white/5 border border-white/10 rounded-full py-4 px-6 text-white text-sm focus:outline-none focus:border-primary transition-colors'
+              />
+              <button className="absolute right-2 top-1.2 bottom-1.2 bg-primary text-white text-xs font-bold px-6 rounded-full hover:bg-primary-2 transition-colors">
+                Join
+              </button>
             </div>
           </div>
         </div>

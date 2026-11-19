@@ -1,3 +1,4 @@
+import React , {useEffect} from 'react'
 import { AnimatePresence, motion } from "motion/react";
 import Logo from '/pcube-logo.svg'
 import { Link } from "react-router-dom";
@@ -18,8 +19,8 @@ const navlinks = [
     path: "/portfolio",
   },
   {
-    name: "Pricing",
-    path: "/pricing",
+    name: "Onboarding",
+    path: "/onboarding",
   },
   {
     name: "Contact us",
@@ -28,11 +29,20 @@ const navlinks = [
 ];
 function Header() {
     const [open, setOpen] = useState(false)
+    const [scrolled, setScrolled] = useState(false)
+
+    useEffect(() => {
+      const handleScroll = () => {
+        setScrolled(window.scrollY > 20)
+      }
+      window.addEventListener('scroll', handleScroll)
+      return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     const toggle = () => (setOpen(!open))
   return (
-    <header className='bg-main-bg fixed top-0 w-full z-1000 transition-all duration-300 text-gray'>
-      <div className='container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20'>
+    <header className={`fixed top-0 w-full z-[1000] transition-all duration-500 ${scrolled ? 'py-4 glass border-b border-white/10' : 'py-4 lg:py-6 bg-transparent border-b border-white/10'}`}>
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10 md:h-20'>
         {/* logo */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -51,19 +61,16 @@ function Header() {
         <nav className='md:flex hidden space-x-8'>
           {navlinks.map((item, index) => (
             <motion.a
-              initial={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-                delay: 0.7 + index * 0.2,
+                delay: 0.2 + index * 0.1,
               }}
               key={index}
               href={item.path}
-              className='relative font-medium text-header-gray hover:text-primary transition-color duration-300 group'>
+              className='relative font-bold text-sm tracking-widest text-slate-700 hover:text-primary transition-all duration-300 group'>
               {item.name}
-              <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300'></span>
+              <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-500'></span>
             </motion.a>
           ))}
         </nav>
@@ -73,7 +80,7 @@ function Header() {
             
         </div> */}
 
-        <div className='flex items-center'>
+        {/* <div className='md:hidden flex items-center'> */}
           {/* Moble Menu Button*/}
           <div className='md:hidden flex items-center'>
             <motion.button
@@ -87,10 +94,12 @@ function Header() {
               )}
             </motion.button>
           </div>
+        {/* </div> */}
 
-          {/* Reach Out */}
-          {/* <MainButton text={"Reach out"} /> */}
-        </div>
+        {/* Reach Out */}
+        <span className='hidden md:block'>
+          <MainButton text={"Reach out"} />
+        </span>
       </div>
 
       {/* MenuDropdown */}

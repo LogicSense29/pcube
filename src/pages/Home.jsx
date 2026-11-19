@@ -1,7 +1,8 @@
 import HeroSection from "../components/HeroSection";
 import BrandsSection from "../components/BrandsSection";
+import CultureSection from "../components/CultureSection";
 import AboutSection from "../components/AboutSection";
-import PorfolioSection from "../components/PorfolioSection";
+import PortfolioSection from "../components/PortfolioSection";
 import ExtraSection from "../components/ExtraSection";
 import ExecutivesSection from "../components/ExecutivesSection";
 
@@ -11,7 +12,8 @@ function Home() {
       <HeroSection />
       <BrandsSection />
       <AboutSection />
-      <PorfolioSection />
+      <PortfolioSection />
+      <CultureSection />
       <ExtraSection />
       <ExecutivesSection />
     </div>
